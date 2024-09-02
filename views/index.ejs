@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD App</title>
+</head>
+<body>
+    <h1>CRUD App</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="name" placeholder="Add new item" required>
+        <input type="number" name="qty" placeholder="Qty" required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        <% items.forEach(function(item) { %>
+            <li>
+                <%= item.name + '(' + item.qty + ')' %>
+                <a href="/edit/<%= item._id %>">Edit</a>
+                <a href="/delete/<%= item._id %>">Delete</a>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
